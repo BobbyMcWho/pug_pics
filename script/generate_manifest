@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'json'
+require 'yaml'
+
+manifest_hash = YAML.load_file(File.join(__dir__, '../manifest.yaml'))
+File.open(File.join(__dir__, '../pug_pics/manifest.json'), 'w') do |file|
+  file.write(JSON.pretty_generate(manifest_hash))
+end

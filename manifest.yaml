@@ -1,0 +1,33 @@
+---
+# DO NOT EDIT manifest.json DIRECTLY!
+# I prefer YAML format for the ability to comment, you may run script/generate_manifest
+# to create the necessary JSON version.
+
+# Many options available, we'll go over some options for a basic browser-action popup extension.
+# https://developer.chrome.com/extensions/manifest
+
+manifest_version: 2 # Required, use 2 until a new manifest format is released.
+name: Pug Pics # Required
+version: 0.1.0 # Required
+
+description: Fetch a picture of a pug! # Recommended
+
+icons: # PNG Recommended, may be BMP, GIF, ICO, JPEG
+  '128': images/pug-icon.png # Should be square, max 128x128 with transparent background.
+
+# You may choose one (or zero, for content scripts) of the following two:
+browser_action: # https://developer.chrome.com/extensions/browserAction
+  default_icon: # You may provide any number of different sized icons.
+    '128': images/pug-icon.png # May be the same as your default extenstion icon if desired.
+  default_popup: views/popup.html # The main view of our popup
+# or (commented to allow compilation of valid manifest.json)
+# page_action: {...} https://developer.chrome.com/extensions/pageAction
+
+# https://developer.chrome.com/extensions/declare_permissions
+permissions: # An array of permissions to allow use of chrome API
+- storage # https://developer.chrome.com/extensions/storage
+- 'https://*.dog.ceo/*' # We want to allow our js to talk to this API.
+background: # https://developer.chrome.com/extensions/background_pages
+  scripts: # Our main background process scripts, you may have multiple for modularity
+  - js/background.js # Communicates with the popup.js via messages to communicate events
+  persistent: false # We don't need this active while the browser or popup is closed.

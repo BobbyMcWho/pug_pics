@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Pug Pics",
+  "version": "0.1.0",
+  "description": "Fetch a picture of a pug!",
+  "icons": {
+    "128": "images/pug-icon.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "images/pug-icon.png"
+    },
+    "default_popup": "views/popup.html"
+  },
+  "permissions": [
+    "storage",
+    "https://*.dog.ceo/*"
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  }
+}

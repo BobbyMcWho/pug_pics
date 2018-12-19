@@ -1,0 +1,12 @@
+body {
+  width: 250px;
+  height: 250px;
+}
+
+.pugImage {
+  background-image: url('../images/loading.gif');
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  border-radius: 5px;
+}
